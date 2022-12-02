@@ -1,9 +1,10 @@
 name: docker-build-push
 
-on: [push]
-workflow-dispatch:
+on: 
+    [push]:
+    workflow_dispatch:
 
-env:
+env:  
   DOCKER_REPO: mysite
 
 jobs:
