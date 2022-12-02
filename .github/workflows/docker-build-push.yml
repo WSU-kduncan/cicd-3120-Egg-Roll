@@ -1,6 +1,7 @@
 name: docker-build-push
 
 on: [push]
+workflow-dispatch:
 
 env:
   DOCKER_REPO: mysite
