@@ -5,6 +5,9 @@ on:
     branches:
       - "main"
 
+env:
+  DOCKER_REPO: mysite
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -28,4 +31,4 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/cicd3120:latest
+          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/${{ env.DOCKER_REPO }}:latest
