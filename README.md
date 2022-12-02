@@ -80,7 +80,7 @@ jobs:
 # Pull docker image
 # Docker pull eggr0ll/mysite:latest
 # Kill old running container (to clear host port)
-echo "stopping contianer"
+echo "stopping container"
 docker stop eggroll
 
 # Removes old container/images
