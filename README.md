@@ -7,12 +7,12 @@
   - 
 - Run Project Locally
   - how you installed docker + dependencies (WSL2, for example)
-    - ```sudo apt install docker.io```
+    - `sudo apt install docker.io`
   - how to build the container
-    - ```sudo docker build -t my-apache2 .```
+    - `sudo docker build -t my-apache2 .`
   - how to run the container
-    - ```sudo docker run --rm -it -p 8080:80 ubuntu```
-    - ```sudo docker run --rm -it -p 8080:80 eggr0ll/mysite:latest``` - if pulled from dockerhub to local
+    - `sudo docker run --rm -it -p 8080:80 ubuntu`
+    - ``udo docker run --rm -it -p 8080:80 eggr0ll/mysite:latest` - if pulled from dockerhub to local
   - how to view the project (open a browser...go to ip and port...)
     - http://localhost:8080/
     - http://127.0.0.1:8080
@@ -25,10 +25,14 @@
     - select create repo
     - add name/description
     - select create
-- Allow DockerHub authentication via CLI using Dockhub credentials
+- How to authenticate with DockerHub via CLI using Dockhub credentials
   - Access account settings and click on security
   - Create "New Access Token" and select read, write, and delete
   - Save the token in a secure location for later access
+  - In WSL2, enter `docker login -u eggr0ll` 
+  - At the password prompt, enter the personal access token.
+- How to push container to Dockerhub
+  - `docker push eggr0ll/mysite:latest`
 - Configure GitHub Secrets
   - what credentials are needed - DockerHub credentials (do not state your credentials)
     - open Docker Hub account settings 
@@ -37,7 +41,10 @@
     - you can refer to them in a YAML file using the .secrets tag and the name of the secret
     - docker hub username (secrets.DOCKER_USERNAME)
     - docker hub token (secrets.DOCKER_TOKEN)
-- Configure GitHub Workflow
+- Behavior GitHub Workflow
+  - what does it do and when
+    - A workflow is a configurable automated process that will run one or more jobs. 
+    - Workflows are defined by a YAML file checked in to your repository and will run when triggered by an event in your repository, or they can be triggered manually, or at a defined schedule.
   - variables to change (repository, etc.)
     - adding the Docker Hub secrets (username and password, and the image name)
 
@@ -107,13 +114,13 @@ docker run -d --name eggroll -p 80:80 eggr0ll/mysite:latest
 ```
 - Setting up a webhook on the server
   - How you created you own listener
-    - ```/home/ubuntu/go/bin/webhook -hooks /home/ubuntu/redeploy.json -verbose >> /home/ubuntu/logs```
+    - `/home/ubuntu/go/bin/webhook -hooks /home/ubuntu/redeploy.json -verbose >> /home/ubuntu/logs`
   - How you installed and are running the [webhook on GitHub](https://github.com/adnanh/webhook)
-    - First install Go: ```sudo snap install go```
-    - Extract the files with tar: ```sudo tar -C /usr/local -xzf go1.18.1.linux-amd64.tar.gz```
-    - Can manually add the PATH to .profile or use ```echo "export PATH=$PATH:/usr/local/go/bin">> .profile```
-    - Install webhook: ```go install github.com/adnanh/webhook@latest```
-    - Redirect output to logs.txt: ```/home/ubuntu/go/bin/webhook -hooks /home/ubuntu/redeploy.json -verbose >> /home/ubuntu/logs.txt```
+    - First install Go: `sudo snap install go`
+    - Extract the files with tar: `sudo tar -C /usr/local -xzf go1.18.1.linux-amd64.tar.gz`
+    - Can manually add the PATH to .profile or use `echo "export PATH=$PATH:/usr/local/go/bin">> .profile`
+    - Install webhook: `go install github.com/adnanh/webhook@latest`
+    - Redirect output to logs.txt: `/home/ubuntu/go/bin/webhook -hooks /home/ubuntu/redeploy.json -verbose >> /home/ubuntu/logs.txt`
 - Setting up a notifier in DockerHub
   - Access your repository and select 'Webhooks'
   - Paste the link to your hook: http://public-ip:port/hooks/id and give it a name
