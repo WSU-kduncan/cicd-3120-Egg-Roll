@@ -28,4 +28,4 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/cicd-3120-eggr0ll:latest
+          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/cicd3120:latest
