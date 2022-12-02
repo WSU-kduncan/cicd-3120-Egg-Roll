@@ -12,7 +12,7 @@
     - ```sudo docker build -t my-apache2 .```
   - how to run the container
     - ```sudo docker run --rm -it -p 8080:80 ubuntu```
-    - ```sudo docker run --rm -it -p 8080:80 dojustin/mysite:latest``` - if pulled from dockerhub to local
+    - ```sudo docker run --rm -it -p 8080:80 eggr0ll/mysite:latest``` - if pulled from dockerhub to local
   - how to view the project (open a browser...go to ip and port...)
     - http://localhost:8080/
     - http://127.0.0.1:8080
@@ -78,7 +78,7 @@ jobs:
  #!/bin/bash
 
 # Pull docker image
-# Docker pull dojustin/mysite:latest
+# Docker pull eggr0ll/mysite:latest
 # Kill old running container (to clear host port)
 echo "stopping contianer"
 docker stop eggroll
@@ -88,11 +88,11 @@ docker system prune -f -a
 
 # Pull docker container post prune
 echo "pulling from repo"
-docker pull dojustin/mysite:latest
+docker pull eggr0ll/mysite:latest
 
 # Run new container
 echo "run container eggroll"
-docker run -d --name eggroll -p 80:80 dojustin/mysite:latest
+docker run -d --name eggroll -p 80:80 eggr0ll/mysite:latest
 ```
 - Webhook task definition file
   - redeploy.json:
