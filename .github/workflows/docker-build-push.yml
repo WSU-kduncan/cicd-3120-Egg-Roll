@@ -11,7 +11,7 @@ jobs:
     steps:
       - name: checking out repo
         uses: actions/checkout@v3
-      - run: echo "post-checkout" && ls -lah && pwd
+      - run: echo "post-checkoutt" && ls -lah && pwd
       - name: login to docker hub 
         uses: docker/login-action@v1
         with:
