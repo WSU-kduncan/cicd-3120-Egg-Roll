@@ -123,8 +123,8 @@ docker run -d --name eggroll -p 80:80 eggr0ll/mysite:latest
     - Redirect output to logs.txt: `/home/ubuntu/go/bin/webhook -hooks /home/ubuntu/redeploy.json -verbose >> /home/ubuntu/logs.txt`
 - Setting up a notifier in DockerHub
   - Access your repository and select 'Webhooks'
-  - Paste the link to your hook: http://public-ip:port/hooks/id and give it a name
-    - Mine was http://3.93.202.229:9000/hooks/redeploy
+  - It will then prompt you to enter a name then in the black space to the right enter filled with your details
+  - http://ipaddress:9000/id?Target=targetToken
 
 ### Part 4 - Diagramming
 ```mermaid
