@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Pull docker image
-# Docker pull dojustin/mysite:latest
+# Docker pull eggr0ll/mysite:latest
 # Kill old running container (to clear host port)
 echo "stopping contianer"
 docker stop eggroll
@@ -11,8 +11,8 @@ docker system prune -f -a
 
 # Pull docker image post prune
 echo "pulling image"
-docker pull dojustin/mysite:latest
+docker pull eggr0ll/mysite:latest
 
 # Run new image
 echo "run image eggroll"
-docker run -d --name eggroll -p 80:80 dojustin/mysite:latest
+docker run -d --name eggroll -p 80:80 eggr0ll/mysite:latest
